@@ -1,0 +1,1118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ntolo Bagari Caleb Samuel — Portfolio Cyberpunk</title>
+  <meta name="description" content="Portfolio cyberpunk de Ntolo — Développeur Web " />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Police cyberpunk -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Palette cyberpunk améliorée -->
+  <style>
+    :root {
+      --bg: #07070b;
+      --panel: #0f1116;
+      --muted: #9aa3b2;
+      --neon-blue: #00a8ff;
+      --neon-cyan: #00f3ff;
+      --neon-white: #eaf6ff;
+      --grid-color: rgba(0, 168, 255, 0.05);
+    }
+
+    html, body {
+      height: 100%;
+      background: linear-gradient(180deg, var(--bg), #05060a);
+      color: var(--neon-white);
+      font-family: 'Rajdhani', sans-serif;
+      overflow-x: hidden;
+      cursor: default !important;
+      /* Correction du scroll */
+      overflow-y: auto !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    /* Effet de grille cyberpunk en arrière-plan */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+      background-size: 20px 20px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Text neon amélioré */
+    .neon-text {
+      color: var(--neon-white);
+      text-shadow: 0 0 10px rgba(0, 168, 255, 0.8), 
+                   0 0 20px rgba(0, 168, 255, 0.5),
+                   0 0 30px rgba(0, 168, 255, 0.3);
+    }
+
+    .neon-cyan {
+      color: var(--neon-cyan);
+      text-shadow: 0 0 10px rgba(0, 243, 255, 0.8);
+    }
+
+    /* Bordures néon animées */
+    .neon-outline {
+      position: relative;
+      border: 1px solid rgba(0, 168, 255, 0.3);
+      box-shadow: 0 0 15px rgba(0, 168, 255, 0.1);
+    }
+
+    .neon-outline::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, transparent, var(--neon-blue), transparent);
+      border-radius: inherit;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .neon-outline:hover::before {
+      opacity: 0.6;
+    }
+
+    /* Boutons cyberpunk améliorés */
+    .neon-btn {
+      border: 1px solid rgba(0, 168, 255, 0.5);
+      background: transparent;
+      padding: 0.5rem 1.5rem;
+      border-radius: 0.5rem;
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 1px;
+      cursor: pointer !important;
+    }
+
+    .neon-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 168, 255, 0.15), 
+                  0 0 20px rgba(0, 168, 255, 0.2);
+      background: rgba(0, 168, 255, 0.05);
+    }
+
+    .neon-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+
+    .neon-btn:hover::after {
+      left: 100%;
+    }
+
+    /* Cartes avec effet holographique */
+    .neon-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neon-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 168, 255, 0.1), transparent);
+      transition: 0.5s;
+    }
+
+    .neon-card:hover::before {
+      left: 100%;
+    }
+
+    /* Barres animées améliorées */
+    .bar-anim {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bar-anim::before, .bar-anim::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--neon-blue), var(--neon-cyan), transparent);
+      left: 0;
+      right: 0;
+      opacity: 0.8;
+    }
+
+    .bar-anim::before {
+      top: 0;
+      animation: slide 3s linear infinite;
+    }
+
+    .bar-anim::after {
+      bottom: 0;
+      animation: slide 3.5s linear infinite reverse;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* Effet de tilt 3D amélioré */
+    .tilt {
+      transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1), 
+                  box-shadow 0.5s;
+      transform-style: preserve-3d;
+    }
+
+    .tilt:hover {
+      transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7),
+                  0 0 30px rgba(0, 168, 255, 0.3);
+    }
+
+    /* Animation de révélation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Effet glitch sur texte */
+    .glitch {
+      position: relative;
+      display: inline-block;
+    }
+
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+    }
+
+    .glitch::before {
+      color: #ff00ff;
+      z-index: -1;
+      animation: glitch-1 0.5s infinite linear alternate-reverse;
+    }
+
+    .glitch::after {
+      color: #00ffff;
+      z-index: -2;
+      animation: glitch-2 0.5s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitch-1 {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
+    }
+
+    @keyframes glitch-2 {
+      0% { transform: translate(0); }
+      20% { transform: translate(2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-2px, 2px); }
+      80% { transform: translate(-2px, -2px); }
+      100% { transform: translate(0); }
+    }
+
+    /* Scan lines - CORRIGÉ pour permettre le scroll */
+    .scanlines {
+      position: relative;
+      overflow: visible !important; /* Changement important */
+    }
+
+    .scanlines::before {
+      content: "";
+      position: fixed; /* Changé à fixed pour ne pas bloquer le scroll */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.1) 51% /* Réduit l'opacité pour moins bloquer */
+      );
+      background-size: 100% 4px;
+      pointer-events: none; /* Important pour ne pas bloquer l'interaction */
+      z-index: 10;
+      animation: scanline 10s linear infinite;
+    }
+
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+
+    /* Terminal typing effect */
+    .terminal {
+      font-family: 'Courier New', monospace;
+      border-right: 2px solid var(--neon-cyan);
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Progress bars animées */
+    .progress-rail {
+      height: 8px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-cyan));
+      box-shadow: 0 0 10px rgba(0, 168, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+      transition: width 1.5s ease-out;
+    }
+
+    .progress-fill::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      animation: shine 2s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    /* Menu mobile */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      height: 100vh;
+      background: rgba(7, 7, 11, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: right 0.3s ease;
+      border-left: 1px solid rgba(0, 168, 255, 0.3);
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7);
+      /* Correction du scroll dans le menu */
+      overflow-y: auto !important;
+    }
+
+    .mobile-menu.open {
+      right: 0;
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-menu-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Photo de profil avec effet cyberpunk */
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      filter: grayscale(0.3) contrast(1.1);
+      position: relative;
+    }
+
+    .profile-photo-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .profile-photo-container::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, transparent, var(--neon-blue), transparent);
+      z-index: -1;
+      opacity: 0.7;
+      animation: hologram-pulse 3s infinite;
+    }
+
+    @keyframes hologram-pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.7; }
+    }
+
+    /* Responsive */
+    @media (min-width: 1024px) {
+      .container-lg {
+        max-width: 1100px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .glitch::before, .glitch::after {
+        display: none;
+      }
+    }
+
+    /* Assurer que tous les éléments interactifs ont un curseur pointer */
+    a, button, [onclick], [data-action] {
+      cursor: pointer !important;
+    }
+
+    input, textarea {
+      cursor: text !important;
+    }
+
+    /* Correction générale du scroll */
+    .min-h-screen {
+      min-height: 100vh;
+      overflow: visible !important;
+    }
+
+    /* S'assurer que le contenu principal peut scroller */
+    main {
+      overflow: visible !important;
+    }
+  </style>
+</head>
+<body class="antialiased scanlines">
+  <!-- Overlay pour menu mobile -->
+  <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+
+  <!-- Menu mobile -->
+  <div id="mobileMenu" class="mobile-menu">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-8">
+        <div class="neon-cyan font-semibold text-lg">MENU</div>
+        <button id="closeMobileMenu" class="neon-btn text-sm">Fermer</button>
+      </div>
+      
+      <nav class="flex flex-col space-y-4">
+        <a class="neon-btn text-lg py-3 text-center" href="#about" onclick="closeMenu()">À propos</a>
+        <a class="neon-btn text-lg py-3 text-center" href="#skills" onclick="closeMenu()">Compétences</a>
+        <a class="neon-btn text-lg py-3 text-center" href="#projects" onclick="closeMenu()">Projets</a>
+        <a class="neon-btn text-lg py-3 text-center" href="#contact" onclick="closeMenu()">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- MAIN WRAPPER - Correction du scroll ici -->
+  <div class="min-h-screen flex flex-col" style="overflow: visible !important;">
+
+    <!-- NAVBAR -->
+    <header class="py-4 px-6 flex items-center justify-between container container-lg mx-auto">
+      <a href="#home" class="flex items-center gap-3 neon-outline p-2 rounded-md">
+        <div class="w-10 h-10 rounded-md flex items-center justify-center bg-gradient-to-br from-black to-slate-900">
+            <img src="img/4.jpg" 
+                           alt="Photo de Ntolo Bagarie Caleb Samuel" 
+                           class="w-full h-full object-cover profile-photo">
+        </div>
+        <div class="text-sm leading-4">
+          <div class="text-xs text-gray-400">Portfolio</div>
+          <div class="neon-cyan font-semibold text-sm glitch" data-text="NBCS_DEV">NBCS_DEV</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex gap-3 items-center">
+        <a class="neon-btn text-sm" href="#about">À propos</a>
+        <a class="neon-btn text-sm" href="#skills">Compétences</a>
+        <a class="neon-btn text-sm" href="#projects">Projets</a>
+        <a class="neon-btn text-sm" href="#contact">Contact</a>
+      </nav>
+
+     
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="flex-1 flex items-center py-12 px-6">
+      <div class="container container-lg mx-auto grid lg:grid-cols-2 gap-10 items-center">
+        <div class="space-y-6">
+          <p class="text-sm text-gray-400 bar-anim px-2 inline-block">👋 BONJOUR — JE SUIS</p>
+
+          <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight neon-text">
+            <span class="block glitch" data-text="NTOLO BAGARIE">NTOLO BAGARI</span>
+            <span class="block neon-cyan text-3xl lg:text-4xl glitch" data-text="CALEB SAMUEL">CALEB SAMUEL</span>
+          </h1>
+
+          <div class="text-lg text-gray-200">
+            <span id="typeLine" class="terminal">DÉVELOPPEUR WEB — </span>
+          </div>
+
+          <p class="text-muted text-gray-400 max-w-xl">Je développe des interfaces modernes, responsives et performantes. Spécialisé front-end avec une bonne base back-end. Actuellement : <strong class="neon-cyan">je cherche un emploi</strong>.</p>
+
+          <div class="flex gap-3 items-center flex-wrap">
+            <a class="neon-btn" href="#contact">Me contacter</a>
+            <button class="neon-btn" id="ctaProjects">Voir mes projets</button>
+            <a class="neon-btn text-sm" href="mailto:bagfranc@gmail.com?subject=Candidature%20-%20Portfolio" id="hireMe">Offre d'emploi</a>
+          </div>
+
+          <div class="mt-6 p-3 rounded-lg text-sm text-gray-300 neon-card">
+            <div class="flex justify-between items-center">
+              <div>Langages / Frameworks :</div>
+              <div class="text-xs text-gray-400">HTML • CSS • JavaScript • TypeScript • PHP • Angular • Vue • Tailwind • Bootstrap</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: visual / mockup area avec photo -->
+        <div id="mockup" class="relative w-full h-72 lg:h-96 neon-card tilt" style="perspective:1200px;">
+          <div class="absolute inset-4 rounded-xl border border-white/5 p-4 flex flex-col gap-4" style="transform:translateZ(40px); background: rgba(0, 0, 0, 0.3);">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-400/80"></span>
+              <span class="w-3 h-3 rounded-full bg-green-400/80"></span>
+              <div class="ml-auto text-xs text-gray-400 bar-anim px-2">CYBER TERMINAL · ACTIVE</div>
+            </div>
+
+            <div class="flex-1 grid grid-cols-2 gap-3">
+              <div class="bg-gradient-to-b from-black/50 to-transparent rounded p-3 bar-anim">
+                <div class="text-xs text-gray-400">Terminal</div>
+                <pre class="text-sm text-gray-200 mt-2 terminal" id="terminalCode">$ npm init cyber-dev
+$ git commit -m "Future"
+$ ./deploy --future</pre>
+              </div>
+
+              <div class="bg-gradient-to-b from-black/50 to-transparent rounded p-3 flex items-center justify-center profile-photo-container">
+                <!-- Remplacement par la photo de profil -->
+                <div class="w-full h-full flex items-center justify-center">
+                  <div class="text-center w-full">
+                    <div class="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden border-2 border-neon-blue">
+                      <!-- Remplace cette URL par le chemin vers ta photo -->
+                      <img src="img/4.jpg" 
+                           alt="Photo de Ntolo Bagarie Caleb Samuel" 
+                           class="w-full h-full object-cover profile-photo">
+                    </div>
+                    <div class="text-lg neon-cyan mb-1">SYSTEM READY</div>
+                    <div class="text-xs text-gray-300">NTOLO B. C. SAMUEL</div>
+                    <div class="mt-2 w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                      <div class="h-full bg-neon-blue rounded-full" style="width: 85%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <main class="container container-lg mx-auto px-6 pb-12" style="overflow: visible !important;">
+
+      <!-- ABOUT -->
+      <section id="about" class="mb-12 reveal">
+        <div class="grid lg:grid-cols-3 gap-6 items-start">
+          <div class="lg:col-span-2 neon-card p-6">
+            <h2 class="text-2xl font-bold neon-text glitch" data-text="À PROPOS DE MOI">À PROPOS DE MOI</h2>
+            <p class="mt-3 text-gray-300">Je m'appelle <strong class="neon-cyan">Ntolo Bagari Caleb Samuel</strong>. Développeur web passionné par les interfaces claires, l'expérience utilisateur et l'esthétique cyberpunk. J'aime que tout soit interactif : micro-animations, retours visuels et transitions fluides.</p>
+
+            <ul class="mt-4 grid sm:grid-cols-2 gap-2 text-sm text-gray-400">
+              <li><span class="neon-cyan">🔧 Métier :</span> Développeur Web</li>
+              <li><span class="neon-cyan">🎯 Objectif :</span> Je cherche un emploi</li>
+              <li><span class="neon-cyan">💻 Langages :</span> HTML, CSS, JavaScript, TypeScript, PHP</li>
+              <li><span class="neon-cyan">🧩 Frameworks :</span> Angular 20 (bases), Vue.js (bases), Tailwind, Bootstrap</li>
+              <li><span class="neon-cyan">📚 Autres :</span> Java EE, Python, C# .NET (projets antérieurs)</li>
+              <li><span class="neon-cyan">⚙️ Préférence :</span> Je code moi-même — ~5-6 projets réalisés</li>
+            </ul>
+
+          </div>
+
+          <aside class="neon-card p-4 tilt">
+            <h3 class="text-lg font-semibold neon-text">INFOS RAPIDES</h3>
+            <div class="mt-3 text-sm text-gray-300">
+              <p>Basé : <strong class="neon-cyan">Disponible pour relocation</strong></p>
+              <p>Contact : <a href="mailto:bagfranc@gmail.com" class="neon-cyan">Email: bagfranc@gmail.com</a></p>
+              <p class="mt-4 bar-anim px-2">Telephone: 678445477</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="mb-12 reveal">
+        <h2 class="text-2xl font-bold neon-text glitch mb-4" data-text="COMPÉTENCES TECHNIQUES">COMPÉTENCES TECHNIQUES</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <div class="neon-card p-4 tilt">
+            <h4 class="font-semibold neon-cyan">LANGAGES PRINCIPAUX</h4>
+            <div class="mt-3 space-y-3">
+              <div>
+                <div class="flex justify-between text-sm text-gray-300"><span>HTML</span><span>95%</span></div>
+                <div class="progress-rail mt-2"><div class="progress-fill" data-width="95%"></div></div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-sm text-gray-300"><span>CSS</span><span>90%</span></div>
+                <div class="progress-rail mt-2"><div class="progress-fill" data-width="90%"></div></div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-sm text-gray-300"><span>JavaScript</span><span>80%</span></div>
+                <div class="progress-rail mt-2"><div class="progress-fill" data-width="80%"></div></div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-sm text-gray-300"><span>TypeScript</span><span>70%</span></div>
+                <div class="progress-rail mt-2"><div class="progress-fill" data-width="70%"></div></div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-sm text-gray-300"><span>PHP</span><span>70%</span></div>
+                <div class="progress-rail mt-2"><div class="progress-fill" data-width="70%"></div></div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="neon-card p-4 tilt">
+            <h4 class="font-semibold neon-cyan">FRAMEWORKS & AUTRES</h4>
+            <div class="mt-3 space-y-3 text-sm text-gray-300">
+              <div class="flex justify-between"><span>Angular (bases)</span><span>60%</span></div>
+              <div class="progress-rail mt-2"><div class="progress-fill" data-width="60%"></div></div>
+
+              <div class="flex justify-between mt-2"><span>Vue.js (bases)</span><span>60%</span></div>
+              <div class="progress-rail mt-2"><div class="progress-fill" data-width="60%"></div></div>
+
+              <div class="flex justify-between mt-2"><span>Tailwind CSS</span><span>80%</span></div>
+              <div class="progress-rail mt-2"><div class="progress-fill" data-width="80%"></div></div>
+
+              <div class="flex justify-between mt-2"><span>Bootstrap</span><span>80%</span></div>
+              <div class="progress-rail mt-2"><div class="progress-fill" data-width="80%"></div></div>
+
+              <div class="flex justify-between mt-2"><span>Java EE / Python / C# .NET</span><span>50%</span></div>
+              <div class="progress-rail mt-2"><div class="progress-fill" data-width="50%"></div></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+<!-- PROJECTS -->
+<section id="projects" class="mb-12 reveal">
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="text-2xl font-bold neon-text glitch" data-text="MES PROJETS">MES PROJETS</h2>
+ 
+  </div>
+
+  <div id="projectsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    
+   <!-- Projet 4 -->
+    <article class="tilt neon-card p-4" data-tags="experiment">
+      <div class="mb-3 overflow-hidden rounded-lg">
+        <img 
+          src="img/9.png" 
+          alt="Capture d'écran des UI Cyber Mockups" 
+          class="w-full h-48 object-cover hover:scale-105 transition duration-500"
+        >
+      </div>
+      <h3 class="font-semibold text-lg neon-cyan glitch" data-text="plant-wattering">plant-wattering</h3>
+      <p class="text-sm text-gray-300 mt-2">application de gestion d'arrosage de plante.</p>
+      <div class="mt-4 flex items-center justify-between">
+        <div class="text-xs text-gray-400">Tech: angular et nestJS </div>
+        <div class="flex gap-2">
+          <a class="neon-btn text-xs" href="https://github.com/iTzSami237/Plant-wattering" data-action="code">Ouvrir le git Fontend</a>
+                    <a class="neon-btn text-xs" href="https://github.com/iTzSami237/Plant-wattering-API" data-action="code">Ouvrir le git API</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Projet 1 -->
+    <article class="tilt neon-card p-4" data-tags="frontend">
+      <div class="mb-3 overflow-hidden rounded-lg">
+        <img 
+          src="img/8.png" 
+          alt="Capture d'écran " 
+          class="w-full h-48 object-cover hover:scale-105 transition duration-500"
+        >
+      </div>
+      <h3 class="font-semibold text-lg neon-cyan glitch" data-text="Site vitrine">Site vitrine dynamique du groupe forac</h3>
+      <p class="text-sm text-gray-300 mt-2">site vitrine de presentattion du business du groupe forac.</p>
+      <div class="mt-4 flex items-center justify-between">
+        <div class="text-xs text-gray-400">Tech: HTML • tailwind CSS • JS • PHP</div>
+        <div class="flex gap-2">
+          <a class="neon-btn text-xs" href="https://www.groupeforacengineering.com/" data-action="code">Ouvrir</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Projet 2 -->
+    <article class="tilt neon-card p-4" data-tags="fullstack">
+      <div class="mb-3 overflow-hidden rounded-lg">
+        <img 
+          src="img/6.png" 
+          alt="Capture d'écran" 
+          class="w-full h-48 object-cover hover:scale-105 transition duration-500"
+        >
+      </div>
+      <h3 class="font-semibold text-lg neon-cyan glitch" data-text="LIVECHAT">LIVECHAT</h3>
+      <p class="text-sm text-gray-300 mt-2">Application de chat en temps reel.</p>
+      <div class="mt-4 flex items-center justify-between">
+        <div class="text-xs text-gray-400">Tech: HTML • Bootstrap • JS • PHP</div>
+        <div class="flex gap-2">
+          <a class="neon-btn text-xs" href="https://github.com/iTzSami237/Camhat" data-action="code">Ouvrir</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Projet 3 -->
+    <article class="tilt neon-card p-4" data-tags="experiment">
+      <div class="mb-3 overflow-hidden rounded-lg">
+        <img 
+          src="img/5.png" 
+          alt="Capture d'écran des UI Cyber Mockups" 
+          class="w-full h-48 object-cover hover:scale-105 transition duration-500"
+        >
+      </div>
+      <h3 class="font-semibold text-lg neon-cyan glitch" data-text="App de gestion">App de gestion</h3>
+      <p class="text-sm text-gray-300 mt-2">Application de gestion du stock et de le production.</p>
+      <div class="mt-4 flex items-center justify-between">
+        <div class="text-xs text-gray-400">Tech: Python </div>
+        <div class="flex gap-2">
+          <a class="neon-btn text-xs" href="https://github.com/iTzSami237/MC-MANAGER" data-action="code">Ouvrir</a>
+        </div>
+      </div>
+    </article>
+
+     <!-- Projet 4 -->
+    <article class="tilt neon-card p-4" data-tags="experiment">
+      <div class="mb-3 overflow-hidden rounded-lg">
+        <img 
+          src="img/7.png" 
+          alt="Capture d'écran des UI Cyber Mockups" 
+          class="w-full h-48 object-cover hover:scale-105 transition duration-500"
+        >
+      </div>
+      <h3 class="font-semibold text-lg neon-cyan glitch" data-text="LIVEBOOK">LIVEBOOK</h3>
+      <p class="text-sm text-gray-300 mt-2">Bibliotheque numerique.</p>
+      <div class="mt-4 flex items-center justify-between">
+        <div class="text-xs text-gray-400">Tech: JAVA EE </div>
+        <div class="flex gap-2">
+          <a class="neon-btn text-xs" href="https://github.com/iTzSami237/LIVEBOOK" data-action="code">Ouvrir</a>
+        </div>
+      </div>
+    </article>
+
+   <!-- Projet 4 -->
+    <article class="tilt neon-card p-4" data-tags="experiment">
+      <div class="mb-3 overflow-hidden rounded-lg">
+        <img 
+          src="img/2.png" 
+          alt="Capture d'écran des UI Cyber Mockups" 
+          class="w-full h-48 object-cover hover:scale-105 transition duration-500"
+        >
+      </div>
+      <h3 class="font-semibold text-lg neon-cyan glitch" data-text="PERGE">PERGE</h3>
+      <p class="text-sm text-gray-300 mt-2">application de gestion de des ressources humaines.</p>
+      <div class="mt-4 flex items-center justify-between">
+        <div class="text-xs text-gray-400">Tech: dotnet </div>
+        <div class="flex gap-2">
+          <a class="neon-btn text-xs" href="https://github.com/iTzSami237/PERGE" data-action="code">Ouvrir</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+<!-- CONTACT -->
+<section id="contact" class="mb-12 reveal">
+  <h2 class="text-2xl font-bold neon-text glitch mb-4" data-text="CONTACT">CONTACT</h2>
+  <div class="grid lg:grid-cols-2 gap-6">
+  
+
+    <aside class="neon-card p-6 tilt">
+      <h3 class="text-lg font-semibold neon-text">ME CONTACTER DIRECTEMENT</h3>
+      <p class="mt-3 text-sm text-gray-300">Email : <a href="mailto:bagfranc@gmail.com" class="neon-cyan">bagfranc@gmail.com</a></p>
+      <p class="mt-2 text-sm text-gray-400">GitHub : <a href="https://github.com/iTzSami237" class="neon-cyan">iiTzSami.</a></p>
+       <p class="mt-2 text-sm text-gray-400">Telephone : 678445477.</a></p>
+
+      <div class="mt-6">
+        <h4 class="text-sm text-gray-300">TÉLÉCHARGER CV</h4>
+        <a id="fakeDownload" class="neon-btn mt-2 inline-block" href="doc/CV NTOLO BAGARI CALEB SAMUEL.pdf">Télécharger </a>
+      </div>
+
+      <div class="mt-6 p-3 bg-black/20 rounded">
+        <div class="text-xs text-gray-400 bar-anim px-2">STATUS: EN RECHERCHE ACTIVE</div>
+        <div class="text-sm text-gray-300 mt-2">Disponible pour des opportunités immédiates.</div>
+      </div>
+    </aside>
+  </div>
+</section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-6 px-6 text-sm text-gray-400 border-t border-white/10">
+      <div class="container container-lg mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
+        <div>© <strong class="neon-cyan">Ntolo B. C. Samuel</strong> — Développeur Web et mobile</div>
+        <div class="text-xs">Design : style cyberpunk avancé (blanc, gris, bleu, noir) — Interactions optimisées</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- SCRIPTS : animations et interactions améliorées -->
+  <script>
+    // Fonctions pour le menu mobile
+    function openMenu() {
+      document.getElementById('mobileMenu').classList.add('open');
+      document.getElementById('mobileMenuOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('mobileMenuOverlay').classList.remove('open');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Typewriter lines (looping) avec effet cyberpunk
+    const lines = [
+      'DÉVELOPPEUR WEB',
+      'HTML • CSS • JAVASCRIPT • TYPESCRIPT • PHP',
+      'INTERFACES INTERACTIVES & ANIMATIONS CLAIR',
+      'DISPONIBLE POUR OPPORTUNITÉS IMMÉDIATES'
+    ];
+    let li = 0;
+    const typeLine = document.getElementById('typeLine');
+
+    async function typeIt(text, el){
+      el.textContent = '';
+      for(let i=0;i<text.length;i++){
+        el.textContent += text[i];
+        // Ajouter un effet de glitch aléatoire
+        if (Math.random() < 0.02) {
+          el.style.textShadow = '0 0 10px #ff00ff';
+          setTimeout(() => {
+            el.style.textShadow = '';
+          }, 100);
+        }
+        await new Promise(r=>setTimeout(r,28 + Math.random()*30));
+      }
+    }
+
+    async function loopType(){
+      while(true){
+        await typeIt(lines[li], typeLine);
+        await new Promise(r=>setTimeout(r,1200));
+        li = (li+1) % lines.length;
+      }
+    }
+    loopType();
+
+    // Animation de révélation améliorée
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) {
+          e.target.classList.add('show');
+          // Animation supplémentaire pour les cartes
+          if (e.target.classList.contains('tilt')) {
+            e.target.style.transitionDelay = '0.2s';
+          }
+        }
+      });
+    },{threshold:0.1});
+
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Skill bars animation on load avec effet cyberpunk
+    window.addEventListener('load', ()=>{
+      document.querySelectorAll('.progress-fill').forEach((el, index)=>{
+        const w = el.getAttribute('data-width') || '0%';
+        setTimeout(()=>{
+          el.style.width = w;
+          // Effet lumineux lors du chargement
+          el.style.boxShadow = `0 0 20px rgba(0, 168, 255, 0.7)`;
+          setTimeout(() => {
+            el.style.boxShadow = `0 0 10px rgba(0, 168, 255, 0.5)`;
+          }, 1000);
+        }, 300 + index * 200);
+      });
+    });
+
+    // Projects filter avec effets visuels
+    document.querySelectorAll('[data-filter]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        // Effet sur le bouton cliqué
+        document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active-filter'));
+        btn.classList.add('active-filter');
+        btn.style.boxShadow = '0 0 20px rgba(0, 168, 255, 0.5)';
+        setTimeout(() => {
+          btn.style.boxShadow = '';
+        }, 500);
+
+        const f = btn.getAttribute('data-filter');
+        document.querySelectorAll('#projectsGrid > article').forEach((card, index)=>{
+          if(f === 'all') {
+            card.style.display = '';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, index * 100);
+          } else {
+            const tags = card.getAttribute('data-tags')||'';
+            if (tags.includes(f)) {
+              card.style.display = '';
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              }, index * 100);
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(20px)';
+              setTimeout(() => {
+                card.style.display = 'none';
+              }, 300);
+            }
+          }
+        });
+      });
+    });
+
+    // Project card actions avec effets cyberpunk
+    document.querySelectorAll('[data-action="view"]').forEach(b=>b.addEventListener('click', (e)=>{
+      e.target.style.background = 'rgba(0, 168, 255, 0.2)';
+      setTimeout(() => {
+        e.target.style.background = '';
+      }, 300);
+      alert('Ouverture du projet — remplace par une modal ou redirection vers la page du projet.');
+    }));
+
+    // Contact form simulation améliorée
+    document.getElementById('contactForm').addEventListener('submit', (ev)=>{
+      ev.preventDefault();
+      const fd = new FormData(ev.target);
+      const name = fd.get('name');
+      
+      // Effet cyberpunk sur l'envoi
+      const submitBtn = ev.target.querySelector('button[type="submit"]');
+      submitBtn.textContent = 'ENVOI EN COURS...';
+      submitBtn.style.background = 'rgba(0, 168, 255, 0.3)';
+      
+      setTimeout(() => {
+        submitBtn.textContent = 'MESSAGE ENVOYÉ!';
+        submitBtn.style.background = 'rgba(0, 255, 0, 0.2)';
+        
+        setTimeout(() => {
+          submitBtn.textContent = 'Envoyer';
+          submitBtn.style.background = '';
+          alert('Merci ' + name + '! Ton message a été simulé. Configure un backend pour l\'envoyer réellement.');
+          ev.target.reset();
+        }, 1500);
+      }, 1000);
+    });
+    
+    document.getElementById('resetForm').addEventListener('click', ()=>{
+      document.getElementById('contactForm').reset();
+      // Effet visuel sur la réinitialisation
+      document.getElementById('contactForm').style.borderColor = 'rgba(255, 0, 0, 0.5)';
+      setTimeout(() => {
+        document.getElementById('contactForm').style.borderColor = '';
+      }, 500);
+    });
+
+    // Fake download avec effet cyberpunk
+    document.getElementById('fakeDownload').addEventListener('click', (e)=>{
+      e.preventDefault();
+      e.target.textContent = 'TÉLÉCHARGEMENT...';
+      setTimeout(() => {
+        e.target.textContent = 'CV TÉLÉCHARGÉ!';
+        setTimeout(() => {
+          e.target.textContent = 'Télécharger (exemple)';
+          alert('Ajoute ton CV (pdf) et remplace le lien pour permettre le téléchargement réel.');
+        }, 1000);
+      }, 500);
+    });
+
+    // CTA to Projects avec animation smooth
+    document.getElementById('ctaProjects').addEventListener('click', ()=>{
+      document.getElementById('projects').scrollIntoView({behavior:'smooth'});
+      // Effet de pulsation sur la section projets
+      const projectsSection = document.getElementById('projects');
+      projectsSection.style.boxShadow = '0 0 50px rgba(0, 168, 255, 0.3)';
+      setTimeout(() => {
+        projectsSection.style.boxShadow = '';
+      }, 1000);
+    });
+
+    // Menu mobile
+    document.getElementById('mobileMenuToggle').addEventListener('click', openMenu);
+    document.getElementById('closeMobileMenu').addEventListener('click', closeMenu);
+    document.getElementById('mobileMenuOverlay').addEventListener('click', closeMenu);
+
+    // Parallax amélioré pour mockup avec effet 3D cyberpunk
+    const mockup = document.getElementById('mockup');
+    if (mockup) {
+      mockup.addEventListener('mousemove', (e)=>{
+        const r = mockup.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width/2)/25;
+        const y = (e.clientY - r.top - r.height/2)/25;
+        mockup.style.transform = `perspective(1200px) rotateX(${y}deg) rotateY(${x}deg) scale(1.02)`;
+        
+        // Effet de lumière basé sur la position de la souris
+        const lightX = (e.clientX - r.left) / r.width * 100;
+        const lightY = (e.clientY - r.top) / r.height * 100;
+        mockup.style.background = `radial-gradient(circle at ${lightX}% ${lightY}%, rgba(0, 168, 255, 0.1), transparent)`;
+      });
+      
+      mockup.addEventListener('mouseleave', ()=>{
+        mockup.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) scale(1)';
+        mockup.style.background = '';
+      });
+    }
+
+    // Effet de glitch aléatoire sur les titres
+    setInterval(() => {
+      const glitchElements = document.querySelectorAll('.glitch');
+      glitchElements.forEach(el => {
+        if (Math.random() < 0.1) {
+          el.style.transform = 'translateX(' + (Math.random() * 4 - 2) + 'px)';
+          setTimeout(() => {
+            el.style.transform = '';
+          }, 100);
+        }
+      });
+    }, 3000);
+
+    // Animation du terminal code
+    const terminalCode = document.getElementById('terminalCode');
+    if (terminalCode) {
+      const originalCode = terminalCode.textContent;
+      setInterval(() => {
+        if (Math.random() < 0.3) {
+          terminalCode.textContent = originalCode.replace(/\d/g, Math.floor(Math.random() * 10));
+          setTimeout(() => {
+            terminalCode.textContent = originalCode;
+          }, 200);
+        }
+      }, 3000);
+    }
+
+    // Initialisation des filtres actifs
+    document.querySelectorAll('[data-filter]').forEach(btn => {
+      if (btn.getAttribute('data-filter') === 'all') {
+        btn.classList.add('active-filter');
+      }
+    });
+
+    // Navigation smooth
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Correction du scroll au chargement de la page
+    document.addEventListener('DOMContentLoaded', function() {
+      // S'assurer que le body peut scroller
+      document.body.style.overflowY = 'auto';
+      document.body.style.overflowX = 'hidden';
+      
+      // Réinitialiser toute propriété qui pourrait bloquer le scroll
+      document.querySelectorAll('*').forEach(el => {
+        if (el.style.overflow === 'hidden') {
+          el.style.overflow = 'visible';
+        }
+      });
+    });
+    // Gestionnaire pour les boutons "Ouvrir" des projets
+
+// Gestionnaire amélioré pour le formulaire de contact
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  const submitBtn = this.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  
+  // Effet visuel de chargement
+  submitBtn.textContent = 'ENVOI EN COURS...';
+  submitBtn.disabled = true;
+  submitBtn.style.background = 'rgba(0, 168, 255, 0.3)';
+  
+  // Le formulaire sera réellement soumis à Formspree
+  // Cette partie est juste pour les effets visuels
+  setTimeout(() => {
+    submitBtn.textContent = 'MESSAGE ENVOYÉ!';
+    submitBtn.style.background = 'rgba(0, 255, 0, 0.2)';
+    
+    setTimeout(() => {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+      submitBtn.style.background = '';
+    }, 2000);
+  }, 1000);
+});
+  </script>
+
+</body>
+</html>
